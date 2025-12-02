@@ -1,0 +1,21 @@
+{%extends "base.html" %}
+{%block title %}SIGN_UP{% endblock %}
+{%block content %}
+<body>
+    <form action="/signup" method="post">
+       <div class="mb-3">
+         <label for="name" class="form-label">Name:</label>
+        <input class="form-control" type="text" id="name" name="name" required><br><br>
+       </div>
+        <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input class="form-control" type="email" id="email" name="email" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input class="form-control" type="password" id="password" name="password" required><br><br>
+       </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</body>
+{% endblock %}

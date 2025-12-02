@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}User_Details{% endblock %}
+{% block content %}
+    <h1>Add Job Details</h1>
+    <form action="/add_job" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="company_name">Company</label>
+        <input class="form-control" type="text" id="company_name" name="company_name" placeholder="Enter Company Name" required><br>
+        </div>
+        <div class="mb-3">
+        <label class="form-label" for="role">Role</label>
+        <input class="form-control" type="text" id="role" name="role" placeholder="Enter Role" required><br>
+        </div>
+        <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select class="form-select" name="status" required>
+          <option value="" disabled selected>Select Status...</option>
+        <option value="Applied">Applied</option>
+        <option value="Interview Scheduled">Interview Scheduled</option>
+        <option value="Rejected">Rejected</option>
+        <option value="Selected">Selected</option>
+        </select>
+        </div>
+        <div class="mb-3">
+        <label class="form-label" for="date">Date-Applied</label>
+        <input class="form-control" type="date" id="date" name="date_applied" required><br>
+       </div>
+        <button class="btn btn-success" type="submit">Save Job</button>
+    </form>
+{% endblock %}

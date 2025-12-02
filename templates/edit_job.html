@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}User_Details{% endblock %}
+{% block content %}
+    <h1>Add Job Details</h1>
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="company_name">Company</label>
+        <input class="form-control" type="text" id="company_name" name="company_name" value="{{job[1]}}" placeholder="Enter Company Name" required><br>
+        </div>
+        <div class="mb-3">
+        <label class="form-label" for="role">Role</label>
+        <input class="form-control" type="text" id="role" name="role" value="{{job[2]}}" placeholder="Enter Role" required><br>
+        </div>
+        <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select class="form-select" name="status" required>
+        <option value="Applied" {%if job[3] == 'Applied' %} selected {%endif%}>Applied</option>
+        <option value="Interview Scheduled"{%if job[3] == 'Interview Scheduled' %} selected {%endif%}>Interview Scheduled</option>
+        <option value="Rejected"{%if job[3] == 'Rejected' %} selected {%endif%}>Rejected</option>
+        <option value="Selected"{%if job[3] == 'Selected' %} selected {%endif%}>Selected</option>
+        </select>
+        </div>
+        <div class="mb-3">
+        <label class="form-label" for="date">Date-Applied</label>
+        <input class="form-control" type="date" id="date" name="date_applied" value="{{job[4]}}" required><br>
+       </div>
+        <button class="btn btn-success" type="submit">Save Job</button>
+    </form>
+{% endblock %}

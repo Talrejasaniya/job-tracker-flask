@@ -2,6 +2,15 @@
 {%block title %}SIGN_UP{% endblock %}
 {%block content %}
 <body>
+    {% if error %}
+    <div style="color: red; background-color: #ffe6e6; padding: 10px; border: 1px solid red; margin-bottom: 10px;">
+    
+    <strong>error:</strong>{{ error }}
+    <br>
+    <a href="{{ url_for('login') }}" style="color: blue; font-weight: bold;">Login Here</a>
+</div>
+    {% endif %}
+
     <form action="/signup" method="post">
        <div class="mb-3">
          <label for="name" class="form-label">Name:</label>

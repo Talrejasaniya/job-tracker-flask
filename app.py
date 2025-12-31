@@ -13,10 +13,16 @@ def signup():
         password=request.form['password']
         conn=sqlite3.connect('database/data.db')
         c=conn.cursor()
-        c.execute('INSERT INTO users (name,email,password) VALUES(?,?,?)',(name,email,password))
-        conn.commit()
-        conn.close()
-        return redirect(url_for('login'))
+        c.execute('SELECT * FROM users WHERE email=?',(email,))
+        user_exists=c.fetchone()
+        if user_exists:
+            conn.close()
+            return render_template('signup.html',error="User already exists. Please login.")
+        else:
+            c.execute('INSERT INTO users (name,email,password) VALUES(?,?,?)',(name,email,password))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('login'))
     return render_template('signup.html')
 
 @app.route('/login',methods=['GET','POST'])
